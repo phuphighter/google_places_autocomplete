@@ -1,0 +1,188 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Paris&types=geocode&sensor=false&key=foobar
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - application/json; charset=UTF-8
+      date: 
+      - Thu, 02 Jun 2011 08:17:49 GMT
+      server: 
+      - mafe
+      x-xss-protection: 
+      - 1; mode=block
+      vary: 
+      - Accept-Language
+      cache-control: 
+      - private
+    body: |
+      {
+         "predictions" : [
+            {
+               "description" : "Paris, France",
+               "id" : "691b237b0322f28988f3ce03e321ff72a12167fd",
+               "matched_substrings" : [
+                  {
+                     "length" : 5,
+                     "offset" : 0
+                  }
+               ],
+               "reference" : "CiQRAAAABKKBeaZo_48lzvdI44WY5ub1Yp4FrvekI3Skd_xUqXcSEMmhuofMyZBl7rLil8HgM1caFJYxEEm1X2I9s0aYvDXkoHWp9gPz",
+               "terms" : [
+                  {
+                     "offset" : 0,
+                     "value" : "Paris"
+                  },
+                  {
+                     "offset" : 7,
+                     "value" : "France"
+                  }
+               ],
+               "types" : [ "locality", "political", "geocode" ]
+            },
+            {
+               "description" : "Paris, TX, United States",
+               "id" : "029556239a911839382f42ec36c5ce2b85be9be3",
+               "matched_substrings" : [
+                  {
+                     "length" : 5,
+                     "offset" : 0
+                  }
+               ],
+               "reference" : "CiQcAAAAFtMJRdTMaY7xtix8NOkmIylHPuv3HjhqBejTmtlFDwESEAvlV6Mr2a9RujKHsr7AitcaFAANLsvbmNDyLOsp7EqBzDm53__-",
+               "terms" : [
+                  {
+                     "offset" : 0,
+                     "value" : "Paris"
+                  },
+                  {
+                     "offset" : 7,
+                     "value" : "TX"
+                  },
+                  {
+                     "offset" : 11,
+                     "value" : "United States"
+                  }
+               ],
+               "types" : [ "colloquial_area", "political", "geocode" ]
+            },
+            {
+               "description" : "Paris, Ontario, Canada",
+               "id" : "e7ac9c89d4a590305242b0cb5bf43064027223c9",
+               "matched_substrings" : [
+                  {
+                     "length" : 5,
+                     "offset" : 0
+                  }
+               ],
+               "reference" : "CiQaAAAAcLp3QE69VyHaR9XT7ODuZqFho4Vk5LZeGjmXEVAHiN8SEAeAx_grOXH5GE31SrFleeUaFLqkH4GmjN2_AvobKzRbAL5ZWzhe",
+               "terms" : [
+                  {
+                     "offset" : 0,
+                     "value" : "Paris"
+                  },
+                  {
+                     "offset" : 7,
+                     "value" : "Ontario"
+                  },
+                  {
+                     "offset" : 16,
+                     "value" : "Canada"
+                  }
+               ],
+               "types" : [ "locality", "political", "geocode" ]
+            },
+            {
+               "description" : "Paris, TN, United States",
+               "id" : "08e83eafcf8efd2611bf476f0a1b9a2894c1a813",
+               "matched_substrings" : [
+                  {
+                     "length" : 5,
+                     "offset" : 0
+                  }
+               ],
+               "reference" : "CiQcAAAA7FOymrF0Q5h7VReIYG7a2hTAOYzD3RnPOfXTDoZvJs0SELdLSpaTFqIh7lKDdkEXBo8aFNE7v4bKA6aXwpJFuZ1vqAY8owL5",
+               "terms" : [
+                  {
+                     "offset" : 0,
+                     "value" : "Paris"
+                  },
+                  {
+                     "offset" : 7,
+                     "value" : "TN"
+                  },
+                  {
+                     "offset" : 11,
+                     "value" : "United States"
+                  }
+               ],
+               "types" : [ "colloquial_area", "political", "geocode" ]
+            },
+            {
+               "description" : "Paris, KY, United States",
+               "id" : "e2522e18d49652387de0a8c030b09ed9fb3251b8",
+               "matched_substrings" : [
+                  {
+                     "length" : 5,
+                     "offset" : 0
+                  }
+               ],
+               "reference" : "CiQcAAAAMjXaIUMs2Oucs8gW_A0XNtdIWVTZzmLfI3_CRP4ni0cSEL2yxLQRKDZLUwNr2Ljzbi0aFEyt6i3PibB7Qvg_1bbR9RvxCdwT",
+               "terms" : [
+                  {
+                     "offset" : 0,
+                     "value" : "Paris"
+                  },
+                  {
+                     "offset" : 7,
+                     "value" : "KY"
+                  },
+                  {
+                     "offset" : 11,
+                     "value" : "United States"
+                  }
+               ],
+               "types" : [ "locality", "political", "geocode" ]
+            }
+         ],
+         "status" : "OK"
+      }
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: https://maps.googleapis.com:443/maps/api/place/autocomplete/json?types=geocode&input=Paris&sensor=false&key=foobar
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - application/json; charset=UTF-8
+      x-xss-protection: 
+      - 1; mode=block
+      server: 
+      - mafe
+      date: 
+      - Fri, 03 Jun 2011 01:41:55 GMT
+      cache-control: 
+      - private
+      vary: 
+      - Accept-Language
+    body: |
+      {
+         "predictions" : [],
+         "status" : "REQUEST_DENIED"
+      }
+
+    http_version: "1.1"
