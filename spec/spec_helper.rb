@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
+require 'rspec'
 require 'vcr_setup'
 require 'google_places_autocomplete'
 
