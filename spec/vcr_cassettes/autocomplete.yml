@@ -12,16 +12,16 @@
     headers: 
       content-type: 
       - application/json; charset=UTF-8
-      date: 
-      - Thu, 02 Jun 2011 08:17:49 GMT
-      server: 
-      - mafe
       x-xss-protection: 
       - 1; mode=block
-      vary: 
-      - Accept-Language
+      server: 
+      - mafe
+      date: 
+      - Thu, 02 Jun 2011 08:17:49 GMT
       cache-control: 
       - private
+      vary: 
+      - Accept-Language
     body: |
       {
          "predictions" : [
@@ -153,36 +153,6 @@
             }
          ],
          "status" : "OK"
-      }
-
-    http_version: "1.1"
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
-    method: :get
-    uri: https://maps.googleapis.com:443/maps/api/place/autocomplete/json?types=geocode&input=Paris&sensor=false&key=foobar
-    body: 
-    headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
-      code: 200
-      message: OK
-    headers: 
-      content-type: 
-      - application/json; charset=UTF-8
-      x-xss-protection: 
-      - 1; mode=block
-      server: 
-      - mafe
-      date: 
-      - Fri, 03 Jun 2011 01:41:55 GMT
-      cache-control: 
-      - private
-      vary: 
-      - Accept-Language
-    body: |
-      {
-         "predictions" : [],
-         "status" : "REQUEST_DENIED"
       }
 
     http_version: "1.1"

@@ -12,8 +12,34 @@ module GooglePlacesAutocomplete
     end
     
     def autocomplete(options={})
-      query = options.merge(self.default_options)
-      mashup(self.class.get("/json", :query => query))
+      sensor = options.delete(:sensor) || false
+      types  = options.delete(:types)
+      input  = options.delete(:input)
+      offset = options.delete(:offset) || nil
+      radius = options.delete(:radius) || nil
+      lat = options.delete(:lat) || nil
+      lng = options.delete(:lng) || nil
+      location = [lat,lng].join(',') if lat && lng
+      sw_bounds = [options[:sw_bounds].delete(:lat),options[:sw_bounds].delete(:lng)].join(',') if options[:sw_bounds] && options[:sw_bounds][:lat] && options[:sw_bounds][:lng]
+      ne_bounds = [options[:ne_bounds].delete(:lat),options[:ne_bounds].delete(:lng)].join(',') if options[:ne_bounds] && options[:ne_bounds][:lat] && options[:ne_bounds][:lng]
+      bounds = [sw_bounds,ne_bounds].join('|') if sw_bounds && ne_bounds
+      
+      options = {
+        :location => location,
+        :radius => radius,
+        :sensor => sensor,
+        :input => input,
+        :offset => offset,
+        :bounds => bounds
+      }
+      
+      if types
+        types = (types.is_a?(Array) ? types.join('|') : types)
+        options.merge!(:types => types)
+      end
+      
+      options = options.delete_if {|key, value| value.nil?}
+      mashup(self.class.get("/json", :query => options.merge(self.default_options)))
     end
     
     protected
