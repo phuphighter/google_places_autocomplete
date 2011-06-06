@@ -26,7 +26,7 @@ describe GooglePlacesAutocomplete::Client do
     use_vcr_cassette 'with_bounds'
 
     it 'should request autocomplete with bounds parameter' do    
-      @client = GooglePlacesAutocomplete::Client.new(:api_key => "AIzaSyA8TtA11BlJ1XWlMisoboZvjk24xHgHwX0")
+      @client = GooglePlacesAutocomplete::Client.new(:api_key => "foobar")
       @autocomplete = @client.autocomplete(:input => "Peter Luger", :types => "establishment", 
                                            :sw_bounds => {:lat => 40.606654, :lng => -74.036865}, 
                                            :ne_bounds => {:lat => 40.744655, :lng => -73.831558})
