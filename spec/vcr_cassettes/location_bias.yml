@@ -1,0 +1,94 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: https://maps.googleapis.com:443/maps/api/place/autocomplete/json?types=establishment&radius=50&input=coffee&location=40.606654%2C-74.036865&sensor=false&key=foobar
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      expires: 
+      - Wed, 03 Aug 2011 15:22:32 GMT
+      content-type: 
+      - application/json; charset=UTF-8
+      x-xss-protection: 
+      - 1; mode=block
+      server: 
+      - mafe
+      date: 
+      - Wed, 03 Aug 2011 15:17:32 GMT
+      vary: 
+      - Accept-Language
+      cache-control: 
+      - public, max-age=300
+    body: |
+      {
+         "predictions" : [
+            {
+               "description" : "Narrows Coffee Shop, 4th Avenue, NY, United States",
+               "id" : "6f8e40d1101da10ec5c5499e3c068bd1d7288fb5",
+               "matched_substrings" : [
+                  {
+                     "length" : 6,
+                     "offset" : 8
+                  }
+               ],
+               "reference" : "CnRqAAAAtpnfY9G9cesdyJhP3NTXGYXeslzB5QGKjtaewFbySFZ1Msq2sBS-UQNe4eW7KzVh8ZumBH9GOFx50kcnhpDAVbz9REmBAlQP73WNQ_mQZ-B1RvPzsEt5Y0zlqnO11eiZRbiY59nM-wUs0p9CdpeuARIQgpgtDIXrt_fvQF8ECnZzpRoUKWo9ed41KsvHU8iiL6BLo8aOJec",
+               "terms" : [
+                  {
+                     "offset" : 0,
+                     "value" : "Narrows Coffee Shop"
+                  },
+                  {
+                     "offset" : 21,
+                     "value" : "4th Avenue"
+                  },
+                  {
+                     "offset" : 33,
+                     "value" : "NY"
+                  },
+                  {
+                     "offset" : 37,
+                     "value" : "United States"
+                  }
+               ],
+               "types" : [ "establishment" ]
+            },
+            {
+               "description" : "Best Coffee Shop, 5th Avenue, NY, United States",
+               "id" : "422aa675b71e6ed07132170b0132fd5a66e836ba",
+               "matched_substrings" : [
+                  {
+                     "length" : 6,
+                     "offset" : 5
+                  }
+               ],
+               "reference" : "CnRnAAAAtLEJZvWFn4VgfohDDwjQtb3qTC8Q6tR7HnBKrb8ihonIrYItxP4Be9Em58rLwvDLV_3beNgeAw8Fpg-bbWbdmcQljuXTJwJ_6DIegAH_NqSF2ZbXtyBNasCzpbYulpryIo0YAHIbzlcdzsHtwUVu8hIQ33zYNA06DMb8_mu3s4i8OBoUpQz0fFevpg0CraJYRQ6FNAo5nCs",
+               "terms" : [
+                  {
+                     "offset" : 0,
+                     "value" : "Best Coffee Shop"
+                  },
+                  {
+                     "offset" : 18,
+                     "value" : "5th Avenue"
+                  },
+                  {
+                     "offset" : 30,
+                     "value" : "NY"
+                  },
+                  {
+                     "offset" : 34,
+                     "value" : "United States"
+                  }
+               ],
+               "types" : [ "establishment" ]
+            }
+         ],
+         "status" : "OK"
+      }
+
+    http_version: "1.1"

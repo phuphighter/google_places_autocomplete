@@ -11,6 +11,17 @@ describe GooglePlacesAutocomplete::Client do
     @client.api_key.should == "foobar"
   end
   
+  context "request an autocomplete with location bias" do
+    use_vcr_cassette 'location_bias'
+
+    it 'should request autocomplete' do    
+      @client = GooglePlacesAutocomplete::Client.new(:api_key => "foobar")
+      @autocomplete = @client.autocomplete(:lat => 40.606654, :lng => -74.036865, :input => "coffee", :types => "establishment", :radius => 50)
+      @autocomplete.predictions.size.should == 2
+      @autocomplete.predictions.first.description.should == "Narrows Coffee Shop, 4th Avenue, NY, United States"
+    end
+  end
+
   context "request an autocomplete" do
     use_vcr_cassette 'autocomplete'
 
