@@ -4,12 +4,13 @@ Ruby wrapper for the [Google Places Autocomplete API](http://code.google.com/api
 
 ## Installation
 
-Inside your Gemfile:
+Inside your Gemfile:   
 gem 'google_places_autocomplete'
     
 ## Get Google Places API credentials
 
-Go here and activate it: [https://code.google.com/apis/console](https://code.google.com/apis/console)
+Go here and activate it:   
+[https://code.google.com/apis/console](https://code.google.com/apis/console)
     
 ## Usage
 
