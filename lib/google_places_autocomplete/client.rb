@@ -14,6 +14,7 @@ module GooglePlacesAutocomplete
     def autocomplete(options={})
       sensor = options.delete(:sensor) || false
       types  = options.delete(:types)
+      language  = options.delete(:language) || nil
       input  = options.delete(:input)
       offset = options.delete(:offset) || nil
       radius = options.delete(:radius) || nil
@@ -27,6 +28,7 @@ module GooglePlacesAutocomplete
       options = {
         :location => location,
         :radius => radius,
+        :language => language,
         :sensor => sensor,
         :input => input,
         :offset => offset,
