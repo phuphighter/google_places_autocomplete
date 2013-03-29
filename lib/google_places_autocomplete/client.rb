@@ -25,6 +25,8 @@ module GooglePlacesAutocomplete
       ne_bounds = [options[:ne_bounds].delete(:lat),options[:ne_bounds].delete(:lng)].join(',') if options[:ne_bounds] && options[:ne_bounds][:lat] && options[:ne_bounds][:lng]
       bounds = [sw_bounds,ne_bounds].join('|') if sw_bounds && ne_bounds
       components = options.delete(:components) || nil
+      user_ip = options.delete(:user_ip) ||  nil
+      quota_user = options.delete(:quota_user) || nil
 
       options = {
         :location => location,
@@ -34,7 +36,9 @@ module GooglePlacesAutocomplete
         :input => input,
         :offset => offset,
         :bounds => bounds,
-        :components => components
+        :components => components,
+        :userIp => user_ip,
+        :quotaUser => quota_user
       }
       
       if types
