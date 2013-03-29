@@ -24,7 +24,8 @@ module GooglePlacesAutocomplete
       sw_bounds = [options[:sw_bounds].delete(:lat),options[:sw_bounds].delete(:lng)].join(',') if options[:sw_bounds] && options[:sw_bounds][:lat] && options[:sw_bounds][:lng]
       ne_bounds = [options[:ne_bounds].delete(:lat),options[:ne_bounds].delete(:lng)].join(',') if options[:ne_bounds] && options[:ne_bounds][:lat] && options[:ne_bounds][:lng]
       bounds = [sw_bounds,ne_bounds].join('|') if sw_bounds && ne_bounds
-      
+      components = options.delete(:components) || nil
+
       options = {
         :location => location,
         :radius => radius,
@@ -32,7 +33,8 @@ module GooglePlacesAutocomplete
         :sensor => sensor,
         :input => input,
         :offset => offset,
-        :bounds => bounds
+        :bounds => bounds,
+        :components => components
       }
       
       if types
