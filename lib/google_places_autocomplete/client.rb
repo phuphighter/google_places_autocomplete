@@ -2,7 +2,7 @@ module GooglePlacesAutocomplete
   
   class Client
     include HTTParty
-    base_uri "https://maps.googleapis.com/maps/api/place/autocomplete"
+    base_uri "https://maps.googleapis.com/maps/api/place"
     format :json
     
     attr_reader :api_key
@@ -47,7 +47,14 @@ module GooglePlacesAutocomplete
       end
       
       options = options.delete_if {|key, value| value.nil?}
-      mashup(self.class.get("/json", :query => options.merge(self.default_options)))
+      mashup(self.class.get("/autocomplete/json", :query => options.merge(self.default_options)))
+    end
+
+    def details(reference_id)
+      options = {
+        reference: reference_id
+      }
+      mashup(self.class.get("/details/json", :query => options.merge(self.default_options)))
     end
     
     protected
