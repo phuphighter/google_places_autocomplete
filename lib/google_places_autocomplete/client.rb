@@ -50,10 +50,20 @@ module GooglePlacesAutocomplete
       mashup(self.class.get("/autocomplete/json", :query => options.merge(self.default_options)))
     end
 
-    def details(reference_id)
-      options = {
-        reference: reference_id
-      }
+    def details(options={})
+      placeid = options.delete(:placeid)
+      reference = options.delete(:reference)
+
+      if placeid
+        options = {
+          placeid: placeid
+        }
+      else
+        options = {
+          reference: reference
+        }
+      end
+
       mashup(self.class.get("/details/json", :query => options.merge(self.default_options)))
     end
     
