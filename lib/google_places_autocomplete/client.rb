@@ -1,16 +1,16 @@
 module GooglePlacesAutocomplete
-  
+
   class Client
     include HTTParty
     base_uri "https://maps.googleapis.com/maps/api/place"
     format :json
-    
+
     attr_reader :api_key
-                
+
     def initialize(options={})
       @api_key = options[:api_key] || GooglePlaces.api_key
     end
-    
+
     def autocomplete(options={})
       sensor = options.delete(:sensor) || false
       types  = options.delete(:types)
@@ -40,39 +40,27 @@ module GooglePlacesAutocomplete
         :userIp => user_ip,
         :quotaUser => quota_user
       }
-      
+
       if types
         types = (types.is_a?(Array) ? types.join('|') : types)
         options.merge!(:types => types)
       end
-      
+
       options = options.delete_if {|key, value| value.nil?}
       mashup(self.class.get("/autocomplete/json", :query => options.merge(self.default_options)))
     end
 
     def details(options={})
-      placeid = options.delete(:placeid)
-      reference = options.delete(:reference)
-
-      if placeid
-        options = {
-          placeid: placeid
-        }
-      else
-        options = {
-          reference: reference
-        }
-      end
-
+      options.delete(:reference) if options[:placeid]
       mashup(self.class.get("/details/json", :query => options.merge(self.default_options)))
     end
-    
+
     protected
-    
+
     def default_options
       { :sensor => false, :key => @api_key }
     end
-    
+
     def mashup(response)
       case response.code
         when 200
