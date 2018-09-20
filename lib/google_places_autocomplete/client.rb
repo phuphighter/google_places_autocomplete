@@ -51,15 +51,7 @@ module GooglePlacesAutocomplete
     end
 
     def details(options={})
-      placeid = options.delete(:placeid)
-      reference = options.delete(:reference)
-
-      if placeid
-        options[:placeid] = placeid
-      else
-        options[:reference] = reference
-      end
-
+      options.delete(:reference) if options[:placeid]
       mashup(self.class.get("/details/json", :query => options.merge(self.default_options)))
     end
 
