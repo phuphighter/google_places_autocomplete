@@ -24,8 +24,4 @@ Go here and activate it:
     >> autocomplete.predictions.first.description
     => "Paris, France"
 
-## Copyright
-
 Contact me if you have any suggestions and feel free to fork it!
-
-Copyright (c) 2009 Johnny Khai Nguyen, released under the MIT license
