@@ -27,6 +27,7 @@ module GooglePlacesAutocomplete
       components = options.delete(:components) || nil
       user_ip = options.delete(:user_ip) ||  nil
       quota_user = options.delete(:quota_user) || nil
+      session_token = options.delete(:session_token) || nil
 
       options = {
         :location => location,
@@ -38,7 +39,8 @@ module GooglePlacesAutocomplete
         :bounds => bounds,
         :components => components,
         :userIp => user_ip,
-        :quotaUser => quota_user
+        :quotaUser => quota_user,
+        :sessiontoken => session_token
       }
 
       if types
